@@ -1,21 +1,20 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware from 'redux-saga';
 
+import { createEpicMiddleware } from 'redux-observable';
 import reducer from './reducer';
-import rootSaga from './saga';
+import rootEpic from './TweetsEpic';
 
-const saga = createSagaMiddleware();
-
+const epic = createEpicMiddleware();
 const composeEnhancers =
   (typeof window !== 'undefined' &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
-const middlware = [saga];
+const middlware = [epic];
 
 const store = createStore(
   reducer,
   composeEnhancers(applyMiddleware(...middlware)),
 );
 
-saga.run(rootSaga);
+epic.run(rootEpic);
 export default store;
