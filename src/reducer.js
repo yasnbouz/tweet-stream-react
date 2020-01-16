@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { FETCH_TWEETS } from './Types';
+import { RECEIVE_TWEETS } from './Types';
 
 const tweets = (tweets = [], action) => {
-  if (action.type === FETCH_TWEETS) return action.payload.tweets;
+  if (action.type === RECEIVE_TWEETS) return action.payload.tweets;
   return tweets;
 };
 

@@ -1,1 +1,2 @@
-export const FETCH_TWEETS = 'FETCH_TWEETS';
+export const REQUEST_TWEETS = 'REQUEST_TWEETS';
+export const RECEIVE_TWEETS = 'RECEIVE_TWEETS';

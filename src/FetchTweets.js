@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchTweets } from './actions';
+import { REQUEST_TWEETS } from './Types';
 
 const FetchTweets = ({ fetchTweets }) => {
   return <button onClick={fetchTweets}>Fetch Tweets</button>;
 };
-const mapDispatchToProps = {
-  fetchTweets,
+const mapDispatchToProps = dispatch => {
+  return { fetchTweets: () => dispatch({ type: REQUEST_TWEETS }) };
 };
 
 export default connect(null, mapDispatchToProps)(FetchTweets);
